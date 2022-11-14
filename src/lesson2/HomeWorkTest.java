@@ -4,6 +4,7 @@ public class HomeWorkTest {
     public static void main(String[] args) {
         System.out.println("Ответ к Задаче 1: " + taskOne());
         System.out.println("Ответ к Задаче 2: " + taskTwo(3, 5));
+        System.out.println("Ответ к Задаче 3: " + repairInvoice());
     }
     //Задача №1
     //Произвести преобразование "234" в число типа int и прибавить к этому числу длину строки "some_text"
@@ -41,6 +42,38 @@ public class HomeWorkTest {
         // Ситуации, что бензин есть и ничего не сломано - быть не может.
         // Ожидаемый результат: выведен на экран счет клиенту.
      */
-
-
+    static double repairInvoice() {
+        boolean hasFuel = true;
+        boolean hasElectricsProblem = false;
+        boolean hasMotorProblem = false;
+        boolean hasTransmissionProblem = true;
+        boolean hasWheelsProblem = true;
+        double result = 0;
+        int count = 0;
+        if (hasFuel && !(hasElectricsProblem || hasMotorProblem || hasWheelsProblem || hasTransmissionProblem)) {
+            result += 1000;
+            count++;
+        }
+        if (hasMotorProblem) {
+            result += 10000;
+            count++;
+        }
+        if (hasElectricsProblem) {
+            result += 5000;
+            count++;
+        }
+        if (hasTransmissionProblem){
+            result += 4000;
+            count++;
+        }
+        if (hasWheelsProblem){
+            result += 2000;
+            count++;
+        }
+        if (count == 2) {
+            if (hasTransmissionProblem && (hasElectricsProblem || hasMotorProblem)) result *= 0.8;
+            else result *= 0.9;
+        }
+        return result;
+    }
 }
