@@ -5,6 +5,8 @@ public class HomeWorkTest {
         System.out.println("Ответ к Задаче 1: " + taskOne());
         System.out.println("Ответ к Задаче 2: " + taskTwo(3, 5));
         System.out.println("Ответ к Задаче 3: " + repairInvoice());
+        String str = "<client>(Какие то данные)<data>79991113344 ;test@yandex.ru;Иванов Иван Иванович</data></client>";
+        System.out.println(ExpertTask.dataMasking(str));
     }
     //Задача №1
     //Произвести преобразование "234" в число типа int и прибавить к этому числу длину строки "some_text"
@@ -46,8 +48,8 @@ public class HomeWorkTest {
         boolean hasFuel = true;
         boolean hasElectricsProblem = false;
         boolean hasMotorProblem = false;
-        boolean hasTransmissionProblem = true;
-        boolean hasWheelsProblem = true;
+        boolean hasTransmissionProblem = false;
+        boolean hasWheelsProblem = false;
         double result = 0;
         int count = 0;
         if (hasFuel && !(hasElectricsProblem || hasMotorProblem || hasWheelsProblem || hasTransmissionProblem)) {

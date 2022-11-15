@@ -63,7 +63,7 @@ public class ExpertTask {
     static String stars(int n) {
         String res = "";
         while (n != 0) {
-            res += "*";
+            res = res.concat("*");
             n--;
         }
         return res;
