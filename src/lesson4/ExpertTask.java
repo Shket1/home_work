@@ -41,7 +41,8 @@ public class ExpertTask {
 
 
     public static void main(String[] args) {
-        getCountSpecCar(GeneratorExpertHomework.getData());
+        for (int i = 0; i < 5; i++)
+            getCountSpecCar(GeneratorExpertHomework.getData());
     }
 
     public static void getCountSpecCar(Map<Integer, Map<String, String[]>> number) {
@@ -62,10 +63,10 @@ public class ExpertTask {
 
     public static HashSet<String> sortCarNumb(Set<String> res) {
         HashSet<String> result = new HashSet<>();
-        String[] mas = res.toArray(new String[res.size()]);
-        for (int i = 0; i < mas.length; i++) {
-            if (equalsNumb(mas[i])) {
-                result.add(mas[i]);
+        String[] mas = res.toArray(new String[0]);
+        for (String ma : mas) {
+            if (equalsNumb(ma)) {
+                result.add(ma);
             }
         }
         return result;
@@ -74,7 +75,6 @@ public class ExpertTask {
     public static boolean equalsNumb(String num) {
         if (num.charAt(0) != FIRST_LITER) return false;
         if (num.charAt(4) != SECOND_LITER) return false;
-        if (num.charAt(5) != THIRD_LITER) return false;
-        return true;
+        return num.charAt(5) == THIRD_LITER;
     }
 }
