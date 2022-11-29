@@ -73,8 +73,9 @@ public class ExpertTask {
     }
 
     public static boolean equalsNumb(String num) {
-        if (num.charAt(0) != FIRST_LITER) return false;
-        if (num.charAt(4) != SECOND_LITER) return false;
-        return num.charAt(5) == THIRD_LITER;
+        if (num.charAt(0) != FIRST_LITER || num.charAt(4) != SECOND_LITER || num.charAt(5) != THIRD_LITER) {
+            return false;
+        }
+        return true;
     }
 }
