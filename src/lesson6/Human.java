@@ -66,7 +66,6 @@ public class Human{
         }
         public Human build() {
             return human;
-
         }
     }
 }
