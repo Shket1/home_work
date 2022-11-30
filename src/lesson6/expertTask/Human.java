@@ -1,4 +1,4 @@
-package lesson6;
+package lesson6.expertTask;
 
 public class Human{
 
