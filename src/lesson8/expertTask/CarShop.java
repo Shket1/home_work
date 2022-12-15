@@ -1,8 +1,6 @@
 package lesson8.expertTask;
 
-//Задача №1
-// Реализовать паттерн Decorator для класса Car (атрибут - стоимость, метод - вывести на экран стоимость).
-// Метод вывести на экран стоимость - выкидывает ошибку, если стоимость меньше 0
+/*
 // Для этого шаблона характерно:
 // 1. Класс основа (Car), и класс декоратор (CarShop), который принимает в себя экземпляр класса основы
 // 2. Вызов всех методов происходит у декоратора
@@ -16,20 +14,26 @@ package lesson8.expertTask;
 // Неизвестна мне - (выдано из объекта CarShop)
 // Давайте посмотрим другое авто? (Вызвано из объекта CarShop)
 
-public class Car {
-    private String model;
-    private double price;
+ */
+public class CarShop {
+    Car car;
 
-    public Car(String model, double price) {
-        this.price = price;
-        this.model = model;
+    public CarShop(Car car) {
+        this.car = car;
     }
+    public void sellCar() {
+        System.out.println("Здравствуй клиент, цена этого авто: ");
+        try {
+            if (car.getPrice() > 0) {
+                System.out.println(car.getPrice());
+                System.out.println("Хочешь купить авто?");
+            } else {
+                throw new Exception("Неизвестна мне");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Давайте посмотрим другое авто?");
+        }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public String getModel() {
-        return model;
     }
 }
