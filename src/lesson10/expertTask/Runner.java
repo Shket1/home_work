@@ -34,6 +34,7 @@ public class Runner {
     public static void main(String[] args) {
         String shopName = "Pyterochka";
         String fileName = "G:\\Users\\User\\IdeaProjects\\HomeWork\\src\\lesson10\\expertTask\\report_01_2012.txt";
+        String incomeOutcome = "Income";
 
         FinancialReport financialReport = new FinancialReport();
 
@@ -44,7 +45,7 @@ public class Runner {
             } else {
                 fileName = "G:\\Users\\User\\IdeaProjects\\HomeWork\\src\\lesson10\\expertTask\\report_" + i +"_2012.txt";
             }
-            System.out.println(financialReport.getReportForAllMonths(fileName, shopName));
+            System.out.println(financialReport.getIncomeStatementForAllMonths(fileName, shopName, incomeOutcome));
         }
     }
 }

@@ -2,8 +2,6 @@ package lesson10.expertTask;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 // Задача №1
 // Необходимо составить отчет о итоговой прибыли за каждый месяц по магазину pyterochka
@@ -15,7 +13,7 @@ import java.math.RoundingMode;
 public class FinancialReport {
     private final String SEPARATOR_CHARACTER = ";";
 
-    public String getReportForAllMonths(String fileName, String shopName) {
+    public String getIncomeStatementForAllMonths(String fileName, String shopName, String incomeOutcome) {
         String line = "";
         String data = "";
         double income = 0;
@@ -24,7 +22,7 @@ public class FinancialReport {
             while (bufferedReader.ready()) {
                 line = bufferedReader.readLine();
                 if (line.contains(shopName.toLowerCase())) {
-                    income += getIncome(line);
+                    income += getIncome(line, incomeOutcome);
                     count++;
                 }
                 if (data.isEmpty() && count > 0) {
@@ -39,10 +37,14 @@ public class FinancialReport {
         return result;
     }
 
-    public double getIncome(String line) {
+    public double getIncome(String line, String incomeOutcome) {
         String[] mas = line.split(SEPARATOR_CHARACTER);
-
-        return Double.valueOf(mas[1]);
+        double res = switch (incomeOutcome.toLowerCase()) {
+            case "income" -> Double.parseDouble(mas[1]);
+            case "outcome" -> Double.parseDouble(mas[2]);
+            default -> 0;
+        };
+        return res;
 
     }
 
