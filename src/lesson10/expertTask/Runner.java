@@ -32,9 +32,12 @@ package lesson10.expertTask;
 // .. и тд
 public class Runner {
     public static void main(String[] args) {
-        String shopName = "pyterochka";
+        String shopName = "Pyterochka";
         String fileName = "G:\\Users\\User\\IdeaProjects\\HomeWork\\src\\lesson10\\expertTask\\report_01_2012.txt";
+
         FinancialReport financialReport = new FinancialReport();
+
+        System.out.println("Отчет по месяцам магазина: " + shopName);
         for (int i = 1; i <= 12; i++) {
             if (i < 10) {
                 fileName = "G:\\Users\\User\\IdeaProjects\\HomeWork\\src\\lesson10\\expertTask\\report_"+ "0" + i +"_2012.txt";

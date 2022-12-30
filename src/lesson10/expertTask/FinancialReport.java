@@ -22,7 +22,7 @@ public class FinancialReport {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));){
             while (bufferedReader.ready()) {
                 line = bufferedReader.readLine();
-                if (line.contains(shopName)) {
+                if (line.contains(shopName.toLowerCase())) {
                     income += getIncome(line);
                     count++;
                 }
@@ -44,6 +44,9 @@ public class FinancialReport {
 
     public String getMonth(String line) {
         String data = line.substring(line.indexOf('/') + 1);
+        if (data.indexOf("/") == 1) {
+            data = "0" + data;
+        }
         return data.replaceAll("/", ".");
     }
 }
