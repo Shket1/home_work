@@ -1,8 +1,9 @@
 package lesson10.expertTask;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 // Задача №1
 // Необходимо составить отчет о итоговой прибыли за каждый месяц по магазину pyterochka
@@ -33,13 +34,16 @@ public class FinancialReport {
         } catch (Exception e) {
             e.getMessage();
         }
+        income = (Math.ceil(income * 100)) / 100;
         String result = data + ": " + income;
         return result;
     }
 
     public double getIncome(String line) {
         String[] mas = line.split(SEPARATOR_CHARACTER);
-        return Double.parseDouble(mas[1]);
+
+        return Double.valueOf(mas[1]);
+
     }
 
     public String getMonth(String line) {
